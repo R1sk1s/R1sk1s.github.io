@@ -1,0 +1,51 @@
+body {
+    font-family: 'Courier New', monospace;
+    background: #0f0f0f;
+    color: #f0f0f0;
+    line-height: 1.6;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 20px;
+}
+
+nav a {
+    margin: 0 15px;
+    color: #4CAF50;
+    text-decoration: none;
+}
+
+.writeup-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.writeup-card {
+    background: #1a1a1a;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.writeup-card:hover {
+    transform: translateY(-5px);
+    transition: 0.3s;
+}
+
+.date {
+    color: #777;
+    font-size: 0.9em;
+}
+
+footer {
+    text-align: center;
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: 1px solid #333;
+}
